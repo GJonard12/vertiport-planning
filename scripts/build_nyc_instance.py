@@ -69,7 +69,7 @@ for r in odk.itertuples():
             saving = 1 - tau / r.median_min
             tt = (saving - cfg["mu"]) / cfg["sigma"]
             a = tt**2 / (1 + tt**2) if tt > 0 else 0.0
-            if a > 0:
+            if saving > cfg["keep_saving_above"]:
                 rows.append(dict(o=r.o, d=r.d, i=i, j=j, D=r.D, t_ground=r.median_min,
                                  t_access=t_oi, t_flight=t_f, t_egress=t_jd, tau=tau,
                                  saving=saving, share=a))

@@ -10,3 +10,4 @@ flight_overhead_minutes: 10  # boarding, takeoff and landing
 pooling_wait_minutes: 5      # fixed pooling wait (the paper makes it endogenous)
 mu: 0.40                     # required relative time saving (paper default)
 sigma: 0.20                  # spread of required saving (paper value unknown, appendix)
+keep_saving_above: 0.25    # keep options that could be useful when mu is swept down to 0.33
