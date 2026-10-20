@@ -1,0 +1,12 @@
+# NYC instance parameters (assumptions; sensitivity analysis later)
+demand_scale_S: 2            # paper: scale taxi demand up to include ride-hailing
+min_ground_minutes: 20       # skip short trips (air taxi cannot compete)
+min_trips_per_day: 1.0       # skip tiny OD pairs (per weekday, 7-10 am)
+k_nearest_vertiports: 3      # vertiports considered at each end of a trip
+max_access_minutes: 25       # longest acceptable ground leg to/from a vertiport
+same_zone_access_minutes: 5  # ground leg when the trip starts in the vertiport's own zone
+cruise_kmh: 240              # eVTOL cruise speed (about 150 mph)
+flight_overhead_minutes: 10  # boarding, takeoff and landing
+pooling_wait_minutes: 5      # fixed pooling wait (the paper makes it endogenous)
+mu: 0.40                     # required relative time saving (paper default)
+sigma: 0.20                  # spread of required saving (paper value unknown, appendix)
