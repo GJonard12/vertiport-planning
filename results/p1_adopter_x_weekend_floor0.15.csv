@@ -1,0 +1,11 @@
+p,pax_het,pax_uni_net,VOH_pct,uni_forecast,jaccard,sec,sites_het,sites_uni
+1,0,0,0.0,0,1.0,0.0,Ashburn,Ashburn
+2,66,66,0.0,99,1.0,0.0,"O'Hare Airport, Hyde Park","O'Hare Airport, Hyde Park"
+3,121,121,0.0,121,1.0,0.0,"O'Hare Airport, Midway Airport, Hyde Park","O'Hare Airport, Midway Airport, Hyde Park"
+4,136,136,0.0,129,1.0,0.0,"O'Hare Airport, Midway Airport, Lincoln Square, Hyde Park","O'Hare Airport, Midway Airport, Lincoln Square, Hyde Park"
+5,141,141,0.0,135,1.0,0.0,"O'Hare Airport, Midway Airport, Lincoln Square, Hyde Park, Ashburn","O'Hare Airport, Midway Airport, Lincoln Square, Hyde Park, Ashburn"
+6,146,146,0.0,141,1.0,0.0,"O'Hare Airport, Midway Airport, Lake View, Lincoln Square, Hyde Park, Ashburn","O'Hare Airport, Midway Airport, Lake View, Lincoln Square, Hyde Park, Ashburn"
+7,149,148,1.0,146,0.75,0.0,"O'Hare Airport, Midway Airport, Lake View, Lincoln Square, West Garfield Park, Hyde Park, Ashburn","O'Hare Airport, Midway Airport, Lake View, Lincoln Square, Hyde Park, Avalon Park, Ashburn"
+8,152,152,0.0,150,1.0,0.0,"O'Hare Airport, Midway Airport, Lake View, Lincoln Square, West Garfield Park, Hyde Park, Avalon Park, Ashburn","O'Hare Airport, Midway Airport, Lake View, Lincoln Square, West Garfield Park, Hyde Park, Avalon Park, Ashburn"
+9,154,153,0.3,153,0.8,0.0,"O'Hare Airport, Midway Airport, Lake View, Lincoln Square, Portage Park, West Garfield Park, Hyde Park, Avalon Park, Ashburn","O'Hare Airport, Midway Airport, Near North Side, Lake View, Lincoln Square, West Garfield Park, Hyde Park, Avalon Park, Ashburn"
+10,155,154,0.5,156,0.82,0.0,"O'Hare Airport, Midway Airport, Near North Side, Lake View, Lincoln Square, Portage Park, West Garfield Park, Hyde Park, Avalon Park, Ashburn","O'Hare Airport, Midway Airport, Near North Side, Loop, Lake View, Lincoln Square, West Garfield Park, Hyde Park, Avalon Park, Ashburn"
