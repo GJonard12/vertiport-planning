@@ -1,0 +1,11 @@
+p,pax_het,pax_uni_net,VOH_pct,uni_forecast,jaccard,sec,sites_het,sites_uni
+1,0,0,0.0,0,1.0,0.0,Lincoln Square,Lincoln Square
+2,1823,1823,-0.0,1174,1.0,0.1,"O'Hare Airport, Loop","O'Hare Airport, Loop"
+3,2592,2592,-0.0,1585,1.0,0.1,"O'Hare Airport, Loop, Lake View","O'Hare Airport, Loop, Lake View"
+4,3191,3191,-0.0,1823,1.0,0.1,"O'Hare Airport, Midway Airport, Loop, Lake View","O'Hare Airport, Midway Airport, Loop, Lake View"
+5,3690,3690,0.0,2106,1.0,0.1,"O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Lake View","O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Lake View"
+6,3899,3899,0.0,2258,1.0,0.1,"O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Loop, Lake View","O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Loop, Lake View"
+7,4065,4050,0.4,2376,0.75,0.1,"O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Loop, Lake View, Hyde Park","O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Loop, Lake View, Lincoln Square"
+8,4229,4217,0.3,2494,0.78,0.1,"O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Loop, Lake View, West Town, Hyde Park","O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Loop, Lake View, Lincoln Square, Hyde Park"
+9,4386,4386,0.0,2597,1.0,0.1,"O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Loop, Lake View, West Town, Lincoln Square, Hyde Park","O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Loop, Lake View, West Town, Lincoln Square, Hyde Park"
+10,4495,4495,0.0,2693,1.0,0.1,"O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Loop, Lake View, West Town, Lincoln Square, Portage Park, Hyde Park","O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Loop, Lake View, West Town, Lincoln Square, Portage Park, Hyde Park"
