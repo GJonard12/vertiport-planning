@@ -1,0 +1,11 @@
+p,pax_het,pax_uni_net,VOH_pct,uni_forecast,jaccard,sec,sites_het,sites_uni
+1,0,0,0.0,0,1.0,0.0,Oakland,Oakland
+2,50,50,0.0,36,1.0,0.1,"O'Hare Airport, Near North Side","O'Hare Airport, Near North Side"
+3,81,77,4.4,63,0.5,0.0,"O'Hare Airport, Near North Side, Uptown","O'Hare Airport, Near North Side, Loop"
+4,108,108,0.0,76,1.0,0.0,"O'Hare Airport, Near North Side, Loop, Uptown","O'Hare Airport, Near North Side, Loop, Uptown"
+5,128,120,6.1,85,0.67,0.0,"O'Hare Airport, Near North Side, Loop, Lincoln Park, Uptown","O'Hare Airport, Vertiport Chicago, Near North Side, Loop, Uptown"
+6,141,133,5.8,94,0.5,0.0,"O'Hare Airport, Near North Side, Loop, Lincoln Park, West Town, Uptown","O'Hare Airport, Vertiport Chicago, Near North Side, Loop, Near South Side, Uptown"
+7,154,152,1.3,102,0.75,0.0,"O'Hare Airport, Vertiport Chicago, Near North Side, Loop, Lincoln Park, Uptown, Belmont Cragin","O'Hare Airport, Vertiport Chicago, Near North Side, Loop, Lincoln Park, Near South Side, Uptown"
+8,167,163,2.4,109,0.6,0.0,"O'Hare Airport, Vertiport Chicago, Near North Side, Loop, Lincoln Park, Near South Side, Uptown, Belmont Cragin","O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Loop, Lake View, Lincoln Park, Near South Side"
+9,180,178,1.3,116,0.64,0.0,"O'Hare Airport, Vertiport Chicago, Near North Side, Loop, Lincoln Park, West Town, Near South Side, Uptown, Belmont Cragin","O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Loop, Lake View, Lincoln Park, Near South Side, Belmont Cragin"
+10,191,187,1.9,123,0.82,0.0,"O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Loop, Lake View, Lincoln Park, West Town, Near South Side, Belmont Cragin","O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Loop, Lake View, Lincoln Park, Near South Side, Rogers Park, Belmont Cragin"

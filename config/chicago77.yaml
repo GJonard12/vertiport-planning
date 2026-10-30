@@ -1,0 +1,55 @@
+month: 2026-03
+periods:
+- am
+- midday
+- pm
+- other
+- weekend
+min_ground_minutes: 20
+min_trips_per_day: 1.0
+obs_min_trips_per_day: 2.0
+k_nearest_vertiports: 3
+max_access_minutes: 25
+same_zone_access_minutes: 5
+coverage_period: midday
+coverage_minutes: 20
+demand_hub_areas:
+- 8
+- 32
+- 6
+- 7
+- 24
+vm_added_areas:
+- 4
+- 15
+- 26
+- 33
+- 41
+- 45
+- 70
+- 54
+cruise_kmh: 200
+flight_overhead_minutes: 10
+pooling_wait_minutes: 5
+keep_saving_above: 0.0
+sigma_floor: 0.05
+vot_cv: 0.84
+scenarios:
+  launch:
+    base: 15
+    rate: 6.0
+    vot: 62.0
+  launch_pess:
+    base: 15
+    rate: 12.0
+    vot: 62.0
+  adopter:
+    base: 15
+    rate: 3.5
+    vot: 31.0
+  mature:
+    base: 15
+    rate: 2.5
+    vot: 20.1
+tag: chicago77
+all_candidates: true

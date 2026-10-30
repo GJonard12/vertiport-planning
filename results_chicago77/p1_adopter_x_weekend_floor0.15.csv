@@ -1,0 +1,11 @@
+p,pax_het,pax_uni_net,VOH_pct,uni_forecast,jaccard,sec,sites_het,sites_uni
+1,0,0,0.0,0,1.0,0.0,West Town,West Town
+2,82,66,18.9,99,0.33,0.1,"O'Hare Airport, Edgewater","O'Hare Airport, Hyde Park"
+3,148,148,0.0,159,1.0,0.0,"O'Hare Airport, Hyde Park, Edgewater","O'Hare Airport, Hyde Park, Edgewater"
+4,212,203,4.4,205,0.6,0.0,"O'Hare Airport, Midway Airport, Hyde Park, Edgewater","O'Hare Airport, Hyde Park, Rogers Park, Edgewater"
+5,274,274,0.0,240,1.0,0.0,"O'Hare Airport, Midway Airport, Hyde Park, Rogers Park, Edgewater","O'Hare Airport, Midway Airport, Hyde Park, Rogers Park, Edgewater"
+6,291,291,0.0,256,1.0,0.0,"O'Hare Airport, Midway Airport, Hyde Park, Rogers Park, Belmont Cragin, Edgewater","O'Hare Airport, Midway Airport, Hyde Park, Rogers Park, Belmont Cragin, Edgewater"
+7,300,300,0.2,268,0.75,0.0,"O'Hare Airport, Midway Airport, Lincoln Square, Hyde Park, Rogers Park, Belmont Cragin, Edgewater","O'Hare Airport, Midway Airport, Hyde Park, Rogers Park, Belmont Cragin, Chicago Lawn, Edgewater"
+8,310,309,0.1,279,0.78,0.0,"O'Hare Airport, Midway Airport, Lincoln Square, Hyde Park, Rogers Park, Belmont Cragin, Chicago Lawn, Edgewater","O'Hare Airport, Midway Airport, Hyde Park, Rogers Park, Belmont Cragin, Austin, Chicago Lawn, Edgewater"
+9,321,319,0.8,291,0.8,0.0,"O'Hare Airport, Midway Airport, Lincoln Square, Hyde Park, Rogers Park, Belmont Cragin, Austin, Chicago Lawn, Edgewater","O'Hare Airport, Midway Airport, Lake View, Hyde Park, Rogers Park, Belmont Cragin, Austin, Chicago Lawn, Edgewater"
+10,331,329,0.7,303,0.82,0.0,"O'Hare Airport, Midway Airport, Lake View, Lincoln Square, Hyde Park, Rogers Park, Belmont Cragin, Austin, Chicago Lawn, Edgewater","O'Hare Airport, Midway Airport, Lake View, Hyde Park, Rogers Park, Belmont Cragin, Austin, Chicago Lawn, Beverly, Edgewater"

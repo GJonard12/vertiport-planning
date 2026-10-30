@@ -8,9 +8,11 @@ ap.add_argument("--share", default="x", choices=["x", "a"])     # x = exact, a =
 ap.add_argument("--period", default="weekday")                  # am, midday, pm, other, weekend, weekday
 ap.add_argument("--floor", type=float, default=0.15)            # minimum relative time saving
 ap.add_argument("--pmax", type=int, default=10)
+ap.add_argument("--instance", default="chicago")
 A = ap.parse_args()
+RES = "results" if A.instance == "chicago" else f"results_{A.instance}"
 
-I = pickle.load(open("data/processed/chicago_instance.pkl", "rb"))
+I = pickle.load(open(f"data/processed/{A.instance}_instance.pkl", "rb"))
 od, opt, cdf = I["od"], I["options"].copy(), I["candidates"]
 name = dict(zip(cdf.zone, cdf.name))
 pers = ["am", "midday", "pm", "other"] if A.period == "weekday" else [A.period]
@@ -58,5 +60,5 @@ print(R.drop(columns=["sites_het", "sites_uni"]).to_string(index=False))
 print("\nSites chosen:")
 for r in R.itertuples():
     print(f" p={r.p:2d}  het: {r.sites_het}\n       uni: {r.sites_uni}")
-out = f"results/p1_{A.scenario}_{A.share}_{A.period}_floor{A.floor}.csv"
-import os; os.makedirs("results", exist_ok=True); R.to_csv(out, index=False); print("\nsaved", out)
+out = f"{RES}/p1_{A.scenario}_{A.share}_{A.period}_floor{A.floor}.csv"
+import os; os.makedirs(RES, exist_ok=True); R.to_csv(out, index=False); print("\nsaved", out)

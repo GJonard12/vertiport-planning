@@ -2,9 +2,10 @@ import pathlib, pickle
 import numpy as np
 import pandas as pd
 import geopandas as gpd
-import yaml
+import yaml, sys
 
-cfg = yaml.safe_load(open("config/chicago.yaml"))
+cfg = yaml.safe_load(open(sys.argv[1] if len(sys.argv) > 1 else "config/chicago.yaml"))
+TAG = cfg.get("tag", "chicago")
 RAW, OUT = pathlib.Path("data/raw/chicago"), pathlib.Path("data/processed")
 OUT.mkdir(parents=True, exist_ok=True)
 df = pd.read_csv(RAW / f"tnp_od_period_{cfg['month']}.csv")
@@ -49,8 +50,10 @@ for p in cfg["periods"]:
 SITES = {76: ("O'Hare Airport", 41.9786, -87.9048), 56: ("Midway Airport", 41.7868, -87.7522),
          28: ("Vertiport Chicago", 41.8645, -87.6714)}
 cand = list(dict.fromkeys(list(SITES) + cfg["demand_hub_areas"] + cfg["vm_added_areas"]))
+if cfg.get("all_candidates"):
+    cand = list(dict.fromkeys(cand + zones))
 source = {z: ("aviation site" if z in SITES else "demand hub" if z in cfg["demand_hub_areas"]
-              else "V&M center") for z in cand}
+              else "V&M center" if z in cfg["vm_added_areas"] else "all areas") for z in cand}
 Gc, cov = G[cfg["coverage_period"]], cfg["coverage_minutes"]
 weight = df.groupby("o").trips_per_day.sum()
 
@@ -148,6 +151,6 @@ print("\nTop 10 OD x period by potential passengers, adopter scenario:")
 print(best[["period", "o", "d", "i", "j", "tau", "saving", "a_het_adopter", "pax"]].round(2).to_string(index=False))
 
 pickle.dump(dict(cfg=cfg, zones=ca.drop(columns="geometry"), candidates=cdf, od=od, options=opt, G=G, FKM=FKM),
-            open(OUT / "chicago_instance.pkl", "wb"))
-cdf.to_csv(OUT / "chicago_candidates.csv", index=False)
-print("\nsaved data/processed/chicago_instance.pkl and chicago_candidates.csv")
+            open(OUT / f"{TAG}_instance.pkl", "wb"))
+cdf.to_csv(OUT / f"{TAG}_candidates.csv", index=False)
+print(f"\nsaved data/processed/{TAG}_instance.pkl and {TAG}_candidates.csv")

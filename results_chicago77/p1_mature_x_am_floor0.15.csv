@@ -1,0 +1,11 @@
+p,pax_het,pax_uni_net,VOH_pct,uni_forecast,jaccard,sec,sites_het,sites_uni
+1,0,0,0.0,0,1.0,0.0,Oakland,Oakland
+2,388,388,0.0,230,1.0,0.1,"O'Hare Airport, Near North Side","O'Hare Airport, Near North Side"
+3,655,655,0.0,399,1.0,0.0,"O'Hare Airport, Near North Side, Loop","O'Hare Airport, Near North Side, Loop"
+4,849,849,0.0,493,1.0,0.0,"O'Hare Airport, Near North Side, Loop, Uptown","O'Hare Airport, Near North Side, Loop, Uptown"
+5,971,971,0.0,569,1.0,0.0,"O'Hare Airport, Vertiport Chicago, Near North Side, Loop, Uptown","O'Hare Airport, Vertiport Chicago, Near North Side, Loop, Uptown"
+6,1072,1072,0.0,618,1.0,0.0,"O'Hare Airport, Vertiport Chicago, Near North Side, Loop, Lincoln Park, Uptown","O'Hare Airport, Vertiport Chicago, Near North Side, Loop, Lincoln Park, Uptown"
+7,1149,1147,0.2,664,0.75,0.0,"O'Hare Airport, Vertiport Chicago, Near North Side, Loop, Lincoln Park, West Town, Uptown","O'Hare Airport, Vertiport Chicago, Near North Side, Loop, Lincoln Park, Uptown, Armour Square"
+8,1224,1216,0.7,707,0.78,0.0,"O'Hare Airport, Vertiport Chicago, Near North Side, Loop, Lincoln Park, West Town, Uptown, Armour Square","O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Loop, Lincoln Park, Uptown, Armour Square"
+9,1298,1298,0.0,748,1.0,0.0,"O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Loop, Lincoln Park, West Town, Uptown, Armour Square","O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Loop, Lincoln Park, West Town, Uptown, Armour Square"
+10,1342,1342,0.0,789,0.82,0.0,"O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Loop, Lincoln Park, West Town, Rogers Park, Uptown, Armour Square","O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Loop, Lincoln Park, West Town, Portage Park, Uptown, Armour Square"

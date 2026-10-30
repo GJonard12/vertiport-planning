@@ -1,0 +1,11 @@
+p,pax_het,pax_uni_net,VOH_pct,uni_forecast,jaccard,sec,sites_het,sites_uni
+1,0,0,0.0,0,1.0,0.0,Mount Greenwood,Mount Greenwood
+2,934,934,0.0,496,1.0,0.1,"O'Hare Airport, Near North Side","O'Hare Airport, Near North Side"
+3,1149,1148,0.1,611,0.5,0.1,"O'Hare Airport, Vertiport Chicago, Near North Side","O'Hare Airport, Near North Side, Uptown"
+4,1368,1362,0.4,725,0.6,0.1,"O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side","O'Hare Airport, Vertiport Chicago, Near North Side, Uptown"
+5,1614,1614,0.0,849,1.0,0.1,"O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Uptown","O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Uptown"
+6,1702,1702,0.0,897,1.0,0.1,"O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Uptown, Armour Square","O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Uptown, Armour Square"
+7,1765,1761,0.2,942,0.56,0.1,"O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Uptown, Armour Square, Woodlawn","O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Lake View, Armour Square, Edgewater"
+8,1829,1829,-0.0,985,1.0,0.1,"O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Lake View, Hyde Park, Armour Square, Edgewater","O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Lake View, Hyde Park, Armour Square, Edgewater"
+9,1891,1891,-0.0,1021,1.0,0.2,"O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Lake View, Hyde Park, Logan Square, Armour Square, Edgewater","O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Lake View, Hyde Park, Logan Square, Armour Square, Edgewater"
+10,1949,1949,-0.0,1056,1.0,0.1,"O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Lake View, West Town, Hyde Park, Logan Square, Armour Square, Edgewater","O'Hare Airport, Midway Airport, Vertiport Chicago, Near North Side, Lake View, West Town, Hyde Park, Logan Square, Armour Square, Edgewater"

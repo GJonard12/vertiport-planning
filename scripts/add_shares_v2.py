@@ -1,5 +1,5 @@
-import pickle, numpy as np, pandas as pd
-F = "data/processed/chicago_instance.pkl"
+import pickle, sys, numpy as np, pandas as pd
+F = f"data/processed/{sys.argv[1] if len(sys.argv) > 1 else 'chicago'}_instance.pkl"
 I = pickle.load(open(F, "rb"))
 od, opt, cfg, cdf = I["od"], I["options"], I["cfg"], I["candidates"]
 zn = dict(zip(I["zones"].ca_num, I["zones"].ca_name)); cn = dict(zip(cdf.zone, cdf.name))

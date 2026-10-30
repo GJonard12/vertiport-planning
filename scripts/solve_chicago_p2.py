@@ -9,9 +9,11 @@ ap.add_argument("--pmin", type=int, default=2)
 ap.add_argument("--pmax", type=int, default=8)
 ap.add_argument("--weekdays", type=int, default=250)
 ap.add_argument("--weekend_days", type=int, default=115)
+ap.add_argument("--instance", default="chicago")
 A = ap.parse_args()
+RES = "results" if A.instance == "chicago" else f"results_{A.instance}"
 
-I = pickle.load(open("data/processed/chicago_instance.pkl", "rb"))
+I = pickle.load(open(f"data/processed/{A.instance}_instance.pkl", "rb"))
 od, opt, cdf = I["od"], I["options"].copy(), I["candidates"]
 name = dict(zip(cdf.zone, cdf.name)); V = cdf.zone.tolist()
 col = f"x_het_{A.scenario}"                                   # OD-specific exact shares = truth
@@ -63,5 +65,5 @@ for p in sorted({min(4, A.pmax), min(6, A.pmax)}):
     print(f"\nSites at p = {p}:")
     for r in R[R.p == p].itertuples():
         print(f"  {r.plan:15s} {r.sites}")
-os.makedirs("results", exist_ok=True)
-out = f"results/p2_{A.scenario}_floor{A.floor}.csv"; R.to_csv(out, index=False); print("\nsaved", out)
+os.makedirs(RES, exist_ok=True)
+out = f"{RES}/p2_{A.scenario}_floor{A.floor}.csv"; R.to_csv(out, index=False); print("\nsaved", out)
