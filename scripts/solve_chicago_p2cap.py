@@ -24,6 +24,31 @@ opt["day"] = opt[col] * od.loc[opt.od_row, "trips_per_day"].values    # passenge
 opt["val"] = opt.day * opt.period.map(DAYS).values                     # passengers per year
 opt["hour"] = opt.day / opt.period.map(HOURS).values                   # passengers per hour (spread evenly)
 
+def solve(sub, p, Q, fix=None):          # P2 with capacity; P1 when sub holds one period; fix = evaluate a given network
+    sub = sub.reset_index(drop=True)
+    m = gp.Model(); m.Params.OutputFlag = 0
+    y = m.addVars(V, vtype=GRB.BINARY); x = m.addVars(len(sub), ub=1.0)
+    m.setObjective(gp.quicksum(sub.val.iat[k] * x[k] for k in range(len(sub))), GRB.MAXIMIZE)
+    for r, g in sub.groupby("od_row").groups.items():
+        m.addConstr(gp.quicksum(x[k] for k in g) <= 1)
+        for i, gi in sub.loc[g].groupby("i").groups.items():
+            m.addConstr(gp.quicksum(x[k] for k in gi) <= y[i])
+        for j, gj in sub.loc[g].groupby("j").groups.items():
+            m.addConstr(gp.quicksum(x[k] for k in gj) <= y[j])
+    if Q > 0:                            # departing + arriving passengers per hour at each vertiport, each period
+        for t in sub.period.unique():
+            st = sub[sub.period == t]
+            for v in set(st.i) | set(st.j):
+                ks = st.index[(st.i == v) | (st.j == v)]
+                m.addConstr(gp.quicksum(st.hour.at[k] * x[k] for k in ks) <= Q * y[v])
+    m.addConstr(y.sum() <= p)
+    if fix is not None:
+        for v in V:
+            y[v].LB = y[v].UB = 1.0 if v in fix else 0.0
+    m.optimize()
+    xv = np.array([x[k].X for k in range(len(sub))])
+    return [v for v in V if y[v].X > 0.5], m.ObjVal, (sub.val * xv).groupby(sub.period).sum()
+
 rows = []
 for Q in [float(q) for q in A.caps.split(",")]:
     for p in range(A.pmin, A.pmax + 1):
