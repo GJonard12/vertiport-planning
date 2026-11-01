@@ -1,6 +1,6 @@
 """Animated 'week in Chicago' for the robust 6-vertiport network (adopter scenario).
 Illustration of the model's period averages, not a flight simulation.
-Writes figures/chicago_day.gif (and .mp4 if ffmpeg is available)."""
+Writes figures/chicago_week.gif (and .mp4 if ffmpeg is available)."""
 import os, shutil, textwrap, pickle, numpy as np, pandas as pd, geopandas as gpd
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation, PillowWriter, FFMpegWriter

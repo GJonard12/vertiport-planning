@@ -1,0 +1,17 @@
+name: vertiport
+channels:
+  - conda-forge
+  - gurobi
+dependencies:
+  - python=3.12
+  - numpy
+  - pandas
+  - geopandas
+  - matplotlib
+  - pyarrow
+  - pyyaml
+  - requests
+  - duckdb
+  - jupyter
+  - ffmpeg
+  - gurobi::gurobi
