@@ -55,7 +55,6 @@ The full mathematical formulation is in [`docs/model_formulation_v1.pdf`](docs/m
 ```bash
 conda env create -f environment.yml
 conda activate vertiport
-# Gurobi needs a license (free academic licenses: gurobi.com/academia)
 
 python scripts/pull_chicago_daily.py 2026-03            # Chicago trips, one day at a time (resumable)
 python scripts/build_chicago_instance.py                 # zones, candidates, ground times, options
@@ -96,4 +95,4 @@ This is an independent student project and is not affiliated with the authors of
 
 ## Author
 
-Gabriel Jonard, KU Leuven (exchange student at the University of Wisconsin-Madison, fall 2026).
+Gabriel Jonard, KU Leuven
