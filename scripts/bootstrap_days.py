@@ -73,7 +73,8 @@ def exact(sv, EX, sdX, bmed):
     b = bmed * np.exp(sl * zk)
     return (wk * Phi((np.multiply.outer(sv, b) - EX[..., None]) / sdX[..., None])).sum(-1)
 
-def build(df):
+def build(df, hassle=None):
+    h = cfg.get("hassle_minutes", 0) if hassle is None else hassle   # fixed transfer penalty (min)
     df = df.copy(); df["minutes"] = df.sec_mean / 60
     G = {}
     for p in PER:
@@ -98,7 +99,7 @@ def build(df):
                 for e in je:
                     if a == e: continue
                     tf = FKM[a, e] / cfg["cruise_kmh"] * 60 + cfg["flight_overhead_minutes"]
-                    sv = 1 - (acc[a] + cfg["pooling_wait_minutes"] + tf + egr[e]) / r.minutes
+                    sv = 1 - (acc[a] + cfg["pooling_wait_minutes"] + tf + egr[e] + h) / r.minutes
                     if sv > cfg["keep_saving_above"]: rows.append((r.Index, p, a, e, sv))
     opt = pd.DataFrame(rows, columns=["od_row", "period", "ia", "je", "saving"])
     w = od.trips_per_day.to_numpy(); rr = opt.od_row.to_numpy(); grid = np.linspace(0, 1, 201)

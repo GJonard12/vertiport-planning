@@ -109,7 +109,7 @@ for p in cfg["periods"]:
                 if a == e:
                     continue
                 tf = FKM[a, e] / cfg["cruise_kmh"] * 60 + cfg["flight_overhead_minutes"]
-                tau = acc[a] + cfg["pooling_wait_minutes"] + tf + egr[e]
+                tau = acc[a] + cfg["pooling_wait_minutes"] + tf + egr[e] + cfg.get("hassle_minutes", 0)
                 sv = 1 - tau / r.minutes
                 if sv > cfg["keep_saving_above"]:
                     rows.append((r.Index, p, r.o, r.d, cand[a], cand[e], acc[a], tf, egr[e], tau, sv))

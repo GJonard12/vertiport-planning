@@ -13,10 +13,11 @@ This project reproduces the vertiport location model of Wang, Jacquillat and Vaz
 All numbers are for the *adopter* scenario ($15 + $3.50 per mile, median value of time $31/h) unless stated otherwise.
 
 1. **A few big hubs, anchored on O'Hare.** Six vertiports (O'Hare, Midway, Near North Side, Loop, Lake View, Vertiport Chicago) carry about **800,000 passengers a year** (90% bootstrap interval 630,000 to 940,000), and O'Hare is at one end of most trips. Two sites already capture a third of what ten sites capture. The same six sites come out in **98% of 200 bootstrap resamples** of the month's days.
-2. **RQ1: the "average customer" gets the place right but the numbers wrong.** Estimating expectations separately for each origin-destination pair, instead of using one average, barely changes *where* to build (under 5% of passengers in most cases; up to 12% at small budgets, and 29% in the thin launch market when all 77 areas are candidates). But the average-customer model **under-forecasts weekday demand by 26 to 56%**, worst in the PM peak, and over-forecasts quiet periods in the launch scenario. The weekday under-forecast is 28% in 90% of bootstrap resamples, so it is not an accident of one month.
-3. **RQ2: do not design for the peak.** A network planned for one rush hour loses **up to 21 to 27% of yearly passengers** (worst case over 4 to 8 vertiports, depending on the fare scenario). In the bootstrap, a peak-only plan loses more than 10% at some budget in **99.5% of resamples** (adopter; 100% mature, 80% launch). A network planned for midday usually stays within 5% of the best all-week network (in 96 to 100% of resamples at most budgets, 66% at 5 vertiports). This holds across three fare scenarios and two candidate sets (16 sites or all 77 community areas). With tight vertiport capacity the loss shrinks, and the best all-week network stays the same at every capacity level.
+2. **RQ1: the "average customer" gets the place right but the numbers wrong.** Estimating expectations separately for each origin-destination pair, instead of using one average, barely changes *where* to build (under 5% of passengers in most cases; up to 12% at small budgets, and 29% in the thin launch market when all 77 areas are candidates). But the average-customer model **under-forecasts weekday demand by 26 to 56%**, worst in the PM peak, and over-forecasts quiet periods in the launch scenario. The weekday under-forecast stays between 28% and 49% in 90% of bootstrap resamples, so it is not an accident of one month.
+3. **RQ2: do not design for the peak.** A network planned for one rush hour loses **up to 21 to 27% of yearly passengers** (worst case over 4 to 8 vertiports, depending on the fare scenario). In the bootstrap, a peak-only plan loses more than 10% at some budget in **99.5% of resamples** (adopter; 100% mature, 80% launch). A network planned for midday usually stays within 5% of the best all-week network (in 96 to 100% of resamples at most budgets, 66% at 5 vertiports). This holds across three fare scenarios and two candidate sets (16 sites or all 77 community areas). With tight vertiport capacity the loss shrinks, and the best all-week network stays the same at every capacity level. Which single period is "safe" depends on assumptions, though: with a transfer penalty the market moves to the PM peak (finding 6).
 4. **The PM peak is the air-taxi rush hour.** It carries 433 passengers per hour on the robust network, more than twice the AM peak (199). With tight vertiport capacity it is also the first period to be cut.
 5. **The demand model matters more than any site choice.** With expectations estimated from Chicago fares and travel times, the paper's worst-case demand bound predicts about 30 times fewer passengers than the exact share under the same assumptions.
+6. **A transfer penalty changes how many fly and when, not the core network.** Neither the paper nor the main runs include a fixed "hassle" cost for changing vehicles twice. Adding one of 5 to 15 minutes to every air-taxi trip cuts passengers by 60 to 90%, and the remaining market concentrates in the PM peak (80 to 100% of passengers), where car trips are slowest. O'Hare, Near North Side, Loop and Lake View stay in the 6-site network; Midway and Vertiport Chicago become uncertain. The best single period to plan for shifts from midday to the PM peak, which reinforces RQ2: the right single period depends on assumptions nobody knows yet, so the network should be planned across all periods. The average-customer under-forecast grows to 50 to 60%.
 
 <p align="center">
   <img src="figures/fig1_network_map.png" width="430" alt="Robust 6-vertiport network">
@@ -27,10 +28,11 @@ All numbers are for the *adopter* scenario ($15 + $3.50 per mile, median value o
 ![Bootstrap](figures/fig5_bootstrap.png)
 
 <details>
-<summary>More figures: capacity and RQ1</summary>
+<summary>More figures: capacity, RQ1 and transfer penalty</summary>
 
 ![Capacity](figures/fig3_capacity.png)
 ![RQ1 forecast error and value of heterogeneity](figures/fig4_rq1_forecast.png)
+![Transfer penalty](figures/fig6_hassle.png)
 
 </details>
 
@@ -40,13 +42,13 @@ All numbers are for the *adopter* scenario ($15 + $3.50 per mile, median value o
 |---|---|
 | Demand data | Chicago Transportation Network Provider trips, March 2026 (City of Chicago open data, dataset `6dvr-xwnh`), aggregated by community area pair and time period (AM 7-10, midday 10-16, PM 16-19, evening, weekend). Shared trips excluded. |
 | Customer expectations (RQ1) | For each OD pair, five server-side averages of 1/t, q/t, 1/t², q/t² and q²/t² (t = ride time, q = price) give the mean and spread of the time saving a traveler requires, for any air-taxi fare, with a lognormal value of time (CV 0.84) and a correction for fare rounding. |
-| Air-taxi option | Access by car to one of the 3 nearest vertiports, 5 min pooling wait, flight at 200 km/h plus 10 min overhead, egress by car. Only options saving at least 15% of the ground time are kept. |
+| Air-taxi option | Access by car to one of the 3 nearest vertiports, 5 min pooling wait, flight at 200 km/h plus 10 min overhead, egress by car. Only options saving at least 15% of the ground time are kept. An optional fixed transfer penalty h (minutes, `hassle_minutes` in the config) is added to the air-taxi time: h = 0 in the main runs, 5 to 15 in the sensitivity analysis. |
 | Switching share | Exact share under the stated distributions (main), and the paper's distributionally robust (Cantelli) bound for comparison. |
 | Optimization | Mixed-integer program solved with Gurobi: choose p vertiports and route each OD pair through at most one open pair. P1 = one period; P2 = all periods share one network (yearly passengers, 250 weekdays + 115 weekend days); optional capacity per vertiport and hour. |
 | Uncertainty | Day-level bootstrap: the 22 weekdays and 9 weekend days are resampled with replacement 200 times; demand, ground times, options and shares are rebuilt and every network with 2 to 8 sites is evaluated exactly by enumeration (Proposition 1), which reproduces the Gurobi results on the original month. |
 | Metrics | Value of heterogeneity (passengers lost when the network is planned with one average expectation), regret of single-period plans, Jaccard similarity of networks. |
 
-The full mathematical formulation is in [`docs/model_formulation_v1.pdf`](docs/model_formulation_v1.pdf) (version of 19 October 2026; the exact share and capacity runs were added later and are described above).
+The full mathematical formulation is in [`docs/model_formulation_v1.1.pdf`](docs/model_formulation_v1.1.pdf). Version 1.1 adds the exact share, the minimum time saving, the capacity constraint, the transfer penalty and the bootstrap to the original version of 19 October 2026.
 
 **Validation on New York.** With the paper's uniform customer expectations and March 2019 yellow-taxi data, the simplified model reproduces the growth of the network in the paper's Table 4 (3 to 7 vertiports as the required time saving falls from 0.40 to 0.33, versus 3 to 10 in the paper) and the JFK site exactly.
 
@@ -63,6 +65,7 @@ python scripts/solve_chicago_p1.py --scenario adopter --period weekday     # RQ1
 python scripts/solve_chicago_p2.py --scenario adopter                      # RQ2, robust vs single-period
 python scripts/solve_chicago_p2cap.py                    # RQ2 with vertiport capacity
 python scripts/bootstrap_days.py 200 && python scripts/summarize_bootstrap.py   # uncertainty (about 20 min, no solver needed)
+python scripts/hassle_sensitivity.py                     # transfer penalty h = 0, 5, 10, 15 min (about 1 min)
 python scripts/make_figures.py && python scripts/animate_day.py
 ```
 
@@ -86,6 +89,18 @@ docs/         model formulation
 - Air-taxi fares are scenarios, not observed prices. Ground prices surge but the air-taxi fare does not.
 - Capacity values (50 to 200 passengers per hour per vertiport) are illustrative and still need to be anchored in the vertiport-capacity literature.
 - Objective is passengers carried, not profit.
+- The main runs have no fixed transfer ("hassle") cost, as in the paper's utility. The paper's survey-based expectations absorb such costs implicitly; the data-based expectations used here do not. The 15% minimum saving is a crude stand-in, and the sensitivity analysis shows that a 5-minute penalty already cuts demand by about 60%.
+- Results use March 2026 only. A seasonal check with July 2025 and January 2026 is in progress (`scripts/compare_months.py`).
+
+## Future work
+
+- **Value of time by neighbourhood and trip type.** All travelers share one value-of-time distribution, independent of where they live and of the trip they make. Scaling the median by community-area income (American Community Survey) and using a higher value on airport trips would make expectations more realistic. It also raises an equity question: does a network that follows willingness to pay mainly serve high-income areas?
+- **Shape of the value-of-time distribution.** Test a coefficient of variation from 0.5 to 1.2 and truncate the lognormal at its 99th percentile, since an untruncated tail can overstate demand.
+- **Observed rather than assumed values of time.** Individual values of time are not observed in the trip data. They could be estimated from choices that reveal a trade-off between price and time, such as standard versus premium ride-hail products.
+- **Estimated transfer penalty.** Replace the 0 to 15 minute sensitivity with an alternative-specific constant estimated from air-taxi choice surveys.
+- **Operations.** Restore the paper's endogenous pooling wait and detours (second-order cone constraints), so that demand and service quality are decided together.
+- **Profit and pricing.** Maximize profit instead of passengers, and let fares vary by route and time of day.
+- **Seasons and capacity.** Extend the seasonal check to a full year, and anchor vertiport capacity in the vertiport-capacity literature.
 
 ## Reference
 

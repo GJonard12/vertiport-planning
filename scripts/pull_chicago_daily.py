@@ -4,7 +4,7 @@ import pandas as pd
 
 DATASETS = {"2019-03": "m6dm-c72p", "2026-03": "6dvr-xwnh"}
 month = sys.argv[1]
-ds = DATASETS[month]
+ds = DATASETS.get(month) or ("6dvr-xwnh" if month >= "2025" else "n26f-ihde" if month >= "2023" else "m6dm-c72p")
 y, m = map(int, month.split("-"))
 first, nxt = dt.date(y, m, 1), dt.date(y + (m == 12), m % 12 + 1, 1)
 URL = f"https://data.cityofchicago.org/resource/{ds}.json"
