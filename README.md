@@ -93,6 +93,13 @@ Wang, K., Jacquillat, A., and Vaze, V. (2022). Vertiport Planning for Urban Aeri
 
 This is an independent student project and is not affiliated with the authors of the paper.
 
+## Acknowledgments
+
+- **Model.** The modeling framework (vertiport location with demand that depends on the air-taxi time saving, and the distributionally robust demand bound) is due to Wang, Jacquillat and Vaze (2022). This project uses a simplified version of their model and is not affiliated with the authors.
+- **Data.** Rideshare trips and community-area boundaries come from the [City of Chicago Data Portal](https://data.cityofchicago.org) (Transportation Network Providers trips, dataset `6dvr-xwnh`). New York validation data comes from the [NYC Taxi and Limousine Commission](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) (yellow taxi trips, March 2019).
+- **Software.** Optimization runs on [Gurobi](https://www.gurobi.com) under a free academic license. Analysis uses Python with NumPy, pandas, GeoPandas and Matplotlib.
+- **Use of AI.** An AI assistant (Claude, Anthropic) was used to write parts of the code, including the figure, animation and bootstrap scripts, and to help draft documentation. The research questions, modeling choices and interpretation of the results are my own.
+
 ## Author
 
 Gabriel Jonard, KU Leuven
