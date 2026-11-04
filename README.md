@@ -131,4 +131,4 @@ This is an independent student project. It is not affiliated with the authors of
 
 ## Author
 
-Gabriel Jonard, KU Leuven
+Gabriel Jonard
