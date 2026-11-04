@@ -19,6 +19,20 @@ All numbers are for the *adopter* scenario ($15 + $3.50 per mile, median value o
 5. **The demand model matters more than any site choice.** With expectations estimated from Chicago fares and travel times, the paper's worst-case demand bound predicts about 30 times fewer passengers than the exact share under the same assumptions.
 6. **A transfer penalty changes how many fly and when, not the core network.** Neither the paper nor the main runs include a fixed "hassle" cost for changing vehicles twice. Adding one of 5 to 15 minutes to every air-taxi trip cuts passengers by 60 to 90%, and the remaining market concentrates in the PM peak (80 to 100% of passengers), where car trips are slowest. O'Hare, Near North Side, Loop and Lake View stay in the 6-site network; Midway and Vertiport Chicago become uncertain. The best single period to plan for shifts from midday to the PM peak, which reinforces RQ2: the right single period depends on assumptions nobody knows yet, so the network should be planned across all periods. The average-customer under-forecast grows to 50 to 60%.
 
+### Robustness at a glance
+
+| What was varied | The 6-site network | RQ2: planning for one peak is costly | RQ1: average-customer model under-forecasts |
+|---|---|---|---|
+| Fare and value of time (launch, adopter, mature) | stable | holds | holds |
+| Candidate sites (16 sites; all 77 areas with 3 or 8 nearest pads) | stable | holds | holds |
+| Day-to-day sampling (200 bootstrap resamples of March) | same in 98% | peak plan loses >10% in 99.5% | in 100% (28 to 49%) |
+| Season (July 2025, January 2026, March 2026) | same in all three months | holds; the safe single period changes (midday, or PM in January) | holds (42 to 59%) |
+| Vertiport capacity (no limit to 50 passengers per hour) | same at every level | regret shrinks | not tested |
+| Minimum time saving (0 or 15%) | stable | holds | holds |
+| Transfer penalty (0 to 15 minutes) | O'Hare, Near North Side, Loop, Lake View stay | holds; the safe single period moves to PM | grows (50 to 60%) |
+
+Flight overhead, pooling wait and cruise speed were not varied separately: each shifts the air-taxi trip time by a few minutes, which the transfer-penalty analysis (0 to 15 minutes added to every trip) bounds. The spread of the value of time (coefficient of variation 0.84) is not varied and is listed under future work.
+
 <p align="center">
   <img src="figures/fig1_network_map.png" width="430" alt="Robust 6-vertiport network">
 </p>
